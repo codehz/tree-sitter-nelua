@@ -1,0 +1,2095 @@
+[
+  {
+    "type": "Annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "AnnotationList",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Annotation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ArrayType",
+    "named": true,
+    "fields": {
+      "inner": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "TypeExpression",
+            "named": true
+          }
+        ]
+      },
+      "length": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "Expression",
+            "named": true
+          },
+          {
+            "type": "PreprocessExpr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "Assign",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ExpressionList",
+          "named": true
+        },
+        {
+          "type": "Variables",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "BinaryOperation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "Assign",
+          "named": true
+        },
+        {
+          "type": "Break",
+          "named": true
+        },
+        {
+          "type": "CallFunction",
+          "named": true
+        },
+        {
+          "type": "Continue",
+          "named": true
+        },
+        {
+          "type": "Defer",
+          "named": true
+        },
+        {
+          "type": "Do",
+          "named": true
+        },
+        {
+          "type": "For",
+          "named": true
+        },
+        {
+          "type": "FuncDef",
+          "named": true
+        },
+        {
+          "type": "Global",
+          "named": true
+        },
+        {
+          "type": "Goto",
+          "named": true
+        },
+        {
+          "type": "If",
+          "named": true
+        },
+        {
+          "type": "Label",
+          "named": true
+        },
+        {
+          "type": "Local",
+          "named": true
+        },
+        {
+          "type": "Repeat",
+          "named": true
+        },
+        {
+          "type": "Return",
+          "named": true
+        },
+        {
+          "type": "Switch",
+          "named": true
+        },
+        {
+          "type": "While",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "ExpressionList",
+          "named": true
+        },
+        {
+          "type": "InitList",
+          "named": true
+        },
+        {
+          "type": "String",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "CallFunction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Call",
+          "named": true
+        },
+        {
+          "type": "CallMethod",
+          "named": true
+        },
+        {
+          "type": "DotIndex",
+          "named": true
+        },
+        {
+          "type": "KeyIndex",
+          "named": true
+        },
+        {
+          "type": "PrimExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "CallMethod",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ExpressionList",
+          "named": true
+        },
+        {
+          "type": "InitList",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "String",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ColonIndex",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ConditionExpression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Defer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Deref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Do",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "DoExpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "DotIndex",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Else",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ElseIf",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "ConditionExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "EnumField",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "EnumType",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "TypeExpression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "EnumField",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "BinaryOperation",
+          "named": true
+        },
+        {
+          "type": "DoExpr",
+          "named": true
+        },
+        {
+          "type": "ExpressionSuffixed",
+          "named": true
+        },
+        {
+          "type": "False",
+          "named": true
+        },
+        {
+          "type": "InitList",
+          "named": true
+        },
+        {
+          "type": "Nil",
+          "named": true
+        },
+        {
+          "type": "Number",
+          "named": true
+        },
+        {
+          "type": "PrimExpression",
+          "named": true
+        },
+        {
+          "type": "String",
+          "named": true
+        },
+        {
+          "type": "True",
+          "named": true
+        },
+        {
+          "type": "Type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ExpressionList",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ExpressionSuffixed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Call",
+          "named": true
+        },
+        {
+          "type": "CallMethod",
+          "named": true
+        },
+        {
+          "type": "DotIndex",
+          "named": true
+        },
+        {
+          "type": "KeyIndex",
+          "named": true
+        },
+        {
+          "type": "PrimExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "Pair",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "For",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ForIn",
+          "named": true
+        },
+        {
+          "type": "ForNum",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ForIn",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "ExpressionList",
+          "named": true
+        },
+        {
+          "type": "IdDecls",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ForNum",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "IdDecl",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FuncDef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FunctionBody",
+          "named": true
+        },
+        {
+          "type": "FunctionName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FunctionBody",
+          "named": true
+        },
+        {
+          "type": "NameDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionArguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "IdDecls",
+          "named": true
+        },
+        {
+          "type": "VarargsType",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionBody",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "AnnotationList",
+          "named": true
+        },
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "FunctionArguments",
+          "named": true
+        },
+        {
+          "type": "FunctionReturnsType",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ColonIndex",
+          "named": true
+        },
+        {
+          "type": "DotIndex",
+          "named": true
+        },
+        {
+          "type": "Id",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionReturnsType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FunctionReturnsType",
+          "named": true
+        },
+        {
+          "type": "FunctionTypeArguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionTypeArgument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        },
+        {
+          "type": "TypedDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FunctionTypeArguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FunctionTypeArgument",
+          "named": true
+        },
+        {
+          "type": "VarargsType",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Global",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Function",
+          "named": true
+        },
+        {
+          "type": "Variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "GlobalDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AnnotationList",
+          "named": true
+        },
+        {
+          "type": "IdSuffixed",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "GlobalDecls",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "GlobalDecl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Goto",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "IdDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AnnotationList",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "IdDecls",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "IdDecl",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "IdSuffixed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "DotIndex",
+          "named": true
+        },
+        {
+          "type": "Id",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "If",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "ConditionExpression",
+          "named": true
+        },
+        {
+          "type": "Else",
+          "named": true
+        },
+        {
+          "type": "ElseIf",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "InitList",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "Field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "KeyIndex",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Local",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Function",
+          "named": true
+        },
+        {
+          "type": "Variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "NameDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Number",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NumberSuffix",
+          "named": true
+        },
+        {
+          "type": "NumberValue",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "NumberValue",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "Pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Expression",
+            "named": true
+          },
+          {
+            "type": "Id",
+            "named": true
+          },
+          {
+            "type": "Name",
+            "named": true
+          },
+          {
+            "type": "PreprocessExpr",
+            "named": true
+          },
+          {
+            "type": "PreprocessName",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "Expression",
+            "named": true
+          },
+          {
+            "type": "PreprocessExpr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "Paren",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "PointerType",
+    "named": true,
+    "fields": {
+      "inner": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "TypeExpression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "PrimExpression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Id",
+          "named": true
+        },
+        {
+          "type": "Paren",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RecordField",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RecordType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "RecordField",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Repeat",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Return",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "SimpleType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "EnumType",
+          "named": true
+        },
+        {
+          "type": "FunctionType",
+          "named": true
+        },
+        {
+          "type": "RecordType",
+          "named": true
+        },
+        {
+          "type": "UnionType",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "SourceFile",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "SHEBANG",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Switch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Else",
+          "named": true
+        },
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        },
+        {
+          "type": "SwitchCase",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "SwitchCase",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "TypeArgument",
+    "named": true,
+    "fields": {
+      "inner": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "TypeExpression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "TypeExpression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ArrayType",
+          "named": true
+        },
+        {
+          "type": "Id",
+          "named": true
+        },
+        {
+          "type": "IdSuffixed",
+          "named": true
+        },
+        {
+          "type": "PointerType",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        },
+        {
+          "type": "SimpleType",
+          "named": true
+        },
+        {
+          "type": "TypeGenericArguments",
+          "named": true
+        },
+        {
+          "type": "TypeUnaryOperation",
+          "named": true
+        },
+        {
+          "type": "VariantType",
+          "named": true
+        },
+        {
+          "type": "VariantTypeOperation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "TypeGenericArguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "TypeArgument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "TypeUnaryOperation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Operator",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "TypedDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AnnotationList",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "UnionField",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "UnionType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "UnionField",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "VarargsType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Call",
+          "named": true
+        },
+        {
+          "type": "CallMethod",
+          "named": true
+        },
+        {
+          "type": "Deref",
+          "named": true
+        },
+        {
+          "type": "DotIndex",
+          "named": true
+        },
+        {
+          "type": "ExpressionList",
+          "named": true
+        },
+        {
+          "type": "GlobalDecls",
+          "named": true
+        },
+        {
+          "type": "IdDecls",
+          "named": true
+        },
+        {
+          "type": "KeyIndex",
+          "named": true
+        },
+        {
+          "type": "PrimExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "Variables",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "VariantType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "VariantTypeOperation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "While",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Block",
+          "named": true
+        },
+        {
+          "type": "Expression",
+          "named": true
+        },
+        {
+          "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "%%%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "..",
+    "named": false
+  },
+  {
+    "type": "...",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "///",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": ">>>",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "Break",
+    "named": true
+  },
+  {
+    "type": "Comment",
+    "named": true
+  },
+  {
+    "type": "Continue",
+    "named": true
+  },
+  {
+    "type": "False",
+    "named": true
+  },
+  {
+    "type": "Name",
+    "named": true
+  },
+  {
+    "type": "Nil",
+    "named": true
+  },
+  {
+    "type": "NumberSuffix",
+    "named": true
+  },
+  {
+    "type": "Operator",
+    "named": true
+  },
+  {
+    "type": "Preprocess",
+    "named": true
+  },
+  {
+    "type": "PreprocessExpr",
+    "named": true
+  },
+  {
+    "type": "PreprocessName",
+    "named": true
+  },
+  {
+    "type": "SHEBANG",
+    "named": true
+  },
+  {
+    "type": "String",
+    "named": true
+  },
+  {
+    "type": "True",
+    "named": true
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "array",
+    "named": false
+  },
+  {
+    "type": "case",
+    "named": false
+  },
+  {
+    "type": "defer",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "elseif",
+    "named": false
+  },
+  {
+    "type": "end",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "function",
+    "named": false
+  },
+  {
+    "type": "global",
+    "named": false
+  },
+  {
+    "type": "goto",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "local",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "pointer",
+    "named": false
+  },
+  {
+    "type": "record",
+    "named": false
+  },
+  {
+    "type": "repeat",
+    "named": false
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": "switch",
+    "named": false
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "union",
+    "named": false
+  },
+  {
+    "type": "until",
+    "named": false
+  },
+  {
+    "type": "variant",
+    "named": false
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  },
+  {
+    "type": "~=",
+    "named": false
+  }
+]
