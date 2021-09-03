@@ -7,6 +7,7 @@
   "enum"
   "union"
   "function"
+  "if"
 ] @keyword
 
 (SelfId) @variable.builtin

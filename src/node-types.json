@@ -947,11 +947,11 @@
       "required": true,
       "types": [
         {
-          "type": "Id",
+          "type": "PreprocessExpr",
           "named": true
         },
         {
-          "type": "PreprocessExpr",
+          "type": "RawId",
           "named": true
         }
       ]
@@ -1285,6 +1285,21 @@
         },
         {
           "type": "TypeGenericArguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RawId",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Name",
           "named": true
         }
       ]

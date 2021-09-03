@@ -190,7 +190,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "Id"
+            "name": "RawId"
           },
           {
             "type": "SYMBOL",

@@ -93,7 +93,7 @@ module.exports = grammar({
     AnnotationList: $ => seq('<', repeatSeq($.Annotation), '>'),
 
     RawId: $ => $.Name,
-    Id: $ => prec(1, choice($.Id, $.PreprocessExpr)),
+    Id: $ => prec(1, choice($.RawId, $.PreprocessExpr)),
     RawIdDecl: $ => seq($.Name, optional($._WithTypeExpression), optional($.AnnotationList)),
     TypedDecl: $ => seq($.Name, $._WithTypeExpression, optional($.AnnotationList)),
 
