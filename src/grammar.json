@@ -1,6 +1,6 @@
 {
   "name": "nelua",
-  "word": "Name",
+  "word": "RawName",
   "rules": {
     "SourceFile": {
       "type": "SEQ",
@@ -119,16 +119,16 @@
       "type": "PATTERN",
       "value": "#\\[.*?\\]#"
     },
-    "Name": {
+    "RawName": {
       "type": "PATTERN",
       "value": "[_a-zA-Z\\u00A0-\\uFFFF][_a-zA-Z0-9\\u00A0-\\uFFFF]*"
     },
-    "_Name": {
+    "Name": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "Name"
+          "name": "RawName"
         },
         {
           "type": "SYMBOL",
@@ -138,7 +138,7 @@
     },
     "Annotation": {
       "type": "SYMBOL",
-      "name": "_Name"
+      "name": "Name"
     },
     "AnnotationList": {
       "type": "SEQ",
@@ -178,16 +178,33 @@
         }
       ]
     },
-    "Id": {
+    "RawId": {
       "type": "SYMBOL",
-      "name": "_Name"
+      "name": "Name"
     },
-    "IdDecl": {
+    "Id": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "Id"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "PreprocessExpr"
+          }
+        ]
+      }
+    },
+    "RawIdDecl": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         },
         {
           "type": "CHOICE",
@@ -220,7 +237,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         },
         {
           "type": "SYMBOL",
@@ -242,31 +259,14 @@
     },
     "NameDecl": {
       "type": "SYMBOL",
-      "name": "_Name"
+      "name": "Name"
     },
-    "_Id": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "Id"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "PreprocessExpr"
-          }
-        ]
-      }
-    },
-    "_IdDecl": {
+    "IdDecl": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "IdDecl"
+          "name": "RawIdDecl"
         },
         {
           "type": "SYMBOL",
@@ -282,7 +282,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_IdDecl"
+            "name": "IdDecl"
           },
           {
             "type": "REPEAT",
@@ -295,7 +295,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_IdDecl"
+                  "name": "IdDecl"
                 }
               ]
             }
@@ -308,7 +308,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_Id"
+          "name": "Id"
         },
         {
           "type": "REPEAT1",
@@ -324,7 +324,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_Id"
+          "name": "Id"
         },
         {
           "type": "REPEAT",
@@ -356,7 +356,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         }
       ]
     },
@@ -369,7 +369,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         }
       ]
     },
@@ -403,7 +403,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         },
         {
           "type": "SYMBOL",
@@ -552,7 +552,7 @@
               "name": "key",
               "content": {
                 "type": "SYMBOL",
-                "name": "_Name"
+                "name": "Name"
               }
             },
             {
@@ -581,7 +581,7 @@
               "name": "key",
               "content": {
                 "type": "SYMBOL",
-                "name": "_Id"
+                "name": "Id"
               }
             }
           ]
@@ -638,7 +638,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_Name"
+              "name": "Name"
             }
           ]
         },
@@ -1024,13 +1024,21 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_Id"
+          "name": "SelfId"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "Id"
         },
         {
           "type": "SYMBOL",
           "name": "Paren"
         }
       ]
+    },
+    "SelfId": {
+      "type": "STRING",
+      "value": "self"
     },
     "Expression": {
       "type": "CHOICE",
@@ -1046,6 +1054,10 @@
         {
           "type": "SYMBOL",
           "name": "BinaryOperation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "UnaryOperation"
         },
         {
           "type": "SYMBOL",
@@ -1808,25 +1820,12 @@
           "name": "VariantType"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_PrimTypeExpression"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "TypeGenericArguments"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "PrimType"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "BuiltinType"
         }
       ]
     },
@@ -2162,6 +2161,40 @@
         }
       ]
     },
+    "PrimType": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_PrimTypeExpression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "BuiltinGenericType"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "TypeGenericArguments"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "_PrimTypeExpression": {
       "type": "CHOICE",
       "members": [
@@ -2171,7 +2204,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Id"
+          "name": "Id"
         }
       ]
     },
@@ -2185,6 +2218,224 @@
         {
           "type": "SYMBOL",
           "name": "TypeExpression"
+        }
+      ]
+    },
+    "BuiltinGenericType": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "facultative"
+        },
+        {
+          "type": "STRING",
+          "value": "overload"
+        },
+        {
+          "type": "STRING",
+          "value": "decltype"
+        }
+      ]
+    },
+    "BuiltinType": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "niltype"
+        },
+        {
+          "type": "STRING",
+          "value": "nilptr"
+        },
+        {
+          "type": "STRING",
+          "value": "type"
+        },
+        {
+          "type": "STRING",
+          "value": "void"
+        },
+        {
+          "type": "STRING",
+          "value": "auto"
+        },
+        {
+          "type": "STRING",
+          "value": "boolean"
+        },
+        {
+          "type": "STRING",
+          "value": "table"
+        },
+        {
+          "type": "STRING",
+          "value": "int8"
+        },
+        {
+          "type": "STRING",
+          "value": "int16"
+        },
+        {
+          "type": "STRING",
+          "value": "int32"
+        },
+        {
+          "type": "STRING",
+          "value": "int64"
+        },
+        {
+          "type": "STRING",
+          "value": "int128"
+        },
+        {
+          "type": "STRING",
+          "value": "isize"
+        },
+        {
+          "type": "STRING",
+          "value": "uint8"
+        },
+        {
+          "type": "STRING",
+          "value": "uint16"
+        },
+        {
+          "type": "STRING",
+          "value": "uint32"
+        },
+        {
+          "type": "STRING",
+          "value": "uint64"
+        },
+        {
+          "type": "STRING",
+          "value": "usize"
+        },
+        {
+          "type": "STRING",
+          "value": "float32"
+        },
+        {
+          "type": "STRING",
+          "value": "float64"
+        },
+        {
+          "type": "STRING",
+          "value": "float128"
+        },
+        {
+          "type": "STRING",
+          "value": "byte"
+        },
+        {
+          "type": "STRING",
+          "value": "cchar"
+        },
+        {
+          "type": "STRING",
+          "value": "cschar"
+        },
+        {
+          "type": "STRING",
+          "value": "cshort"
+        },
+        {
+          "type": "STRING",
+          "value": "cint"
+        },
+        {
+          "type": "STRING",
+          "value": "clong"
+        },
+        {
+          "type": "STRING",
+          "value": "clonglong"
+        },
+        {
+          "type": "STRING",
+          "value": "cptrdiff"
+        },
+        {
+          "type": "STRING",
+          "value": "cuchar"
+        },
+        {
+          "type": "STRING",
+          "value": "cushort"
+        },
+        {
+          "type": "STRING",
+          "value": "cuint"
+        },
+        {
+          "type": "STRING",
+          "value": "culong"
+        },
+        {
+          "type": "STRING",
+          "value": "csize"
+        },
+        {
+          "type": "STRING",
+          "value": "clongdouble"
+        },
+        {
+          "type": "STRING",
+          "value": "cstring"
+        },
+        {
+          "type": "STRING",
+          "value": "cdouble"
+        },
+        {
+          "type": "STRING",
+          "value": "cfloat"
+        },
+        {
+          "type": "STRING",
+          "value": "cvararg"
+        },
+        {
+          "type": "STRING",
+          "value": "cvalist"
+        },
+        {
+          "type": "STRING",
+          "value": "cclock_"
+        },
+        {
+          "type": "STRING",
+          "value": "ctime_t"
+        },
+        {
+          "type": "STRING",
+          "value": "integer"
+        },
+        {
+          "type": "STRING",
+          "value": "uinteger"
+        },
+        {
+          "type": "STRING",
+          "value": "number"
+        },
+        {
+          "type": "STRING",
+          "value": "string"
+        },
+        {
+          "type": "STRING",
+          "value": "any"
+        },
+        {
+          "type": "STRING",
+          "value": "varanys"
+        },
+        {
+          "type": "STRING",
+          "value": "varargs"
         }
       ]
     },
@@ -2407,8 +2658,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_Name"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Name"
+          },
+          "named": true,
+          "value": "FieldName"
         },
         {
           "type": "STRING",
@@ -2427,8 +2683,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_Name"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "Name"
+              },
+              "named": true,
+              "value": "FieldName"
             },
             {
               "type": "STRING",
@@ -2450,8 +2711,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_Name"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Name"
+          },
+          "named": true,
+          "value": "FieldName"
         },
         {
           "type": "CHOICE",
@@ -2548,7 +2814,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         },
         {
           "type": "STRING",
@@ -2586,7 +2852,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_Name"
+          "name": "Name"
         }
       ]
     },
@@ -2914,7 +3180,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_IdDecl"
+          "name": "IdDecl"
         },
         {
           "type": "STRING",

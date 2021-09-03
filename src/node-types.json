@@ -10,10 +10,6 @@
         {
           "type": "Name",
           "named": true
-        },
-        {
-          "type": "PreprocessName",
-          "named": true
         }
       ]
     }
@@ -181,6 +177,16 @@
     }
   },
   {
+    "type": "BuiltinGenericType",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "BuiltinType",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "Call",
     "named": true,
     "fields": {},
@@ -255,10 +261,6 @@
           "named": true
         },
         {
-          "type": "PreprocessName",
-          "named": true
-        },
-        {
           "type": "String",
           "named": true
         }
@@ -275,10 +277,6 @@
       "types": [
         {
           "type": "Name",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
           "named": true
         }
       ]
@@ -378,10 +376,6 @@
         {
           "type": "Name",
           "named": true
-        },
-        {
-          "type": "PreprocessName",
-          "named": true
         }
       ]
     }
@@ -433,15 +427,11 @@
           "named": true
         },
         {
-          "type": "Name",
+          "type": "FieldName",
           "named": true
         },
         {
           "type": "PreprocessExpr",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
           "named": true
         }
       ]
@@ -524,6 +514,10 @@
         {
           "type": "Type",
           "named": true
+        },
+        {
+          "type": "UnaryOperation",
+          "named": true
         }
       ]
     }
@@ -596,6 +590,25 @@
         },
         {
           "type": "PreprocessExpr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "FieldName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "RawName",
           "named": true
         }
       ]
@@ -773,10 +786,6 @@
         {
           "type": "Id",
           "named": true
-        },
-        {
-          "type": "PreprocessExpr",
-          "named": true
         }
       ]
     }
@@ -893,10 +902,6 @@
           "named": true
         },
         {
-          "type": "PreprocessName",
-          "named": true
-        },
-        {
           "type": "TypeExpression",
           "named": true
         }
@@ -929,10 +934,6 @@
         {
           "type": "Name",
           "named": true
-        },
-        {
-          "type": "PreprocessName",
-          "named": true
         }
       ]
     }
@@ -946,11 +947,11 @@
       "required": true,
       "types": [
         {
-          "type": "Name",
+          "type": "Id",
           "named": true
         },
         {
-          "type": "PreprocessName",
+          "type": "PreprocessExpr",
           "named": true
         }
       ]
@@ -961,23 +962,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "AnnotationList",
+          "type": "PreprocessExpr",
           "named": true
         },
         {
-          "type": "Name",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
-          "named": true
-        },
-        {
-          "type": "TypeExpression",
+          "type": "RawIdDecl",
           "named": true
         }
       ]
@@ -993,10 +986,6 @@
       "types": [
         {
           "type": "IdDecl",
-          "named": true
-        },
-        {
-          "type": "PreprocessExpr",
           "named": true
         }
       ]
@@ -1016,10 +1005,6 @@
         },
         {
           "type": "Id",
-          "named": true
-        },
-        {
-          "type": "PreprocessExpr",
           "named": true
         }
       ]
@@ -1097,10 +1082,6 @@
         {
           "type": "Name",
           "named": true
-        },
-        {
-          "type": "PreprocessName",
-          "named": true
         }
       ]
     }
@@ -1125,6 +1106,25 @@
     }
   },
   {
+    "type": "Name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "PreprocessName",
+          "named": true
+        },
+        {
+          "type": "RawName",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "NameDecl",
     "named": true,
     "fields": {},
@@ -1134,10 +1134,6 @@
       "types": [
         {
           "type": "Name",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
           "named": true
         }
       ]
@@ -1189,10 +1185,6 @@
           },
           {
             "type": "PreprocessExpr",
-            "named": true
-          },
-          {
-            "type": "PreprocessName",
             "named": true
           }
         ]
@@ -1265,7 +1257,57 @@
           "named": true
         },
         {
-          "type": "PreprocessExpr",
+          "type": "SelfId",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "PrimType",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "BuiltinGenericType",
+          "named": true
+        },
+        {
+          "type": "Id",
+          "named": true
+        },
+        {
+          "type": "IdSuffixed",
+          "named": true
+        },
+        {
+          "type": "TypeGenericArguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RawIdDecl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AnnotationList",
+          "named": true
+        },
+        {
+          "type": "Name",
+          "named": true
+        },
+        {
+          "type": "TypeExpression",
           "named": true
         }
       ]
@@ -1280,11 +1322,7 @@
       "required": true,
       "types": [
         {
-          "type": "Name",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
+          "type": "FieldName",
           "named": true
         },
         {
@@ -1497,7 +1535,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -1505,11 +1543,7 @@
           "named": true
         },
         {
-          "type": "Id",
-          "named": true
-        },
-        {
-          "type": "IdSuffixed",
+          "type": "BuiltinType",
           "named": true
         },
         {
@@ -1517,15 +1551,11 @@
           "named": true
         },
         {
-          "type": "PreprocessExpr",
+          "type": "PrimType",
           "named": true
         },
         {
           "type": "SimpleType",
-          "named": true
-        },
-        {
-          "type": "TypeGenericArguments",
           "named": true
         },
         {
@@ -1594,11 +1624,26 @@
           "named": true
         },
         {
-          "type": "PreprocessName",
+          "type": "TypeExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "UnaryOperation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "Expression",
           "named": true
         },
         {
-          "type": "TypeExpression",
+          "type": "PreprocessExpr",
           "named": true
         }
       ]
@@ -1613,11 +1658,7 @@
       "required": true,
       "types": [
         {
-          "type": "Name",
-          "named": true
-        },
-        {
-          "type": "PreprocessName",
+          "type": "FieldName",
           "named": true
         },
         {
@@ -1909,10 +1950,6 @@
     "named": true
   },
   {
-    "type": "Name",
-    "named": true
-  },
-  {
     "type": "Nil",
     "named": true
   },
@@ -1937,7 +1974,15 @@
     "named": true
   },
   {
+    "type": "RawName",
+    "named": true
+  },
+  {
     "type": "SHEBANG",
+    "named": true
+  },
+  {
+    "type": "SelfId",
     "named": true
   },
   {
@@ -1965,11 +2010,111 @@
     "named": false
   },
   {
+    "type": "any",
+    "named": false
+  },
+  {
     "type": "array",
     "named": false
   },
   {
+    "type": "auto",
+    "named": false
+  },
+  {
+    "type": "boolean",
+    "named": false
+  },
+  {
+    "type": "byte",
+    "named": false
+  },
+  {
     "type": "case",
+    "named": false
+  },
+  {
+    "type": "cchar",
+    "named": false
+  },
+  {
+    "type": "cclock_",
+    "named": false
+  },
+  {
+    "type": "cdouble",
+    "named": false
+  },
+  {
+    "type": "cfloat",
+    "named": false
+  },
+  {
+    "type": "cint",
+    "named": false
+  },
+  {
+    "type": "clong",
+    "named": false
+  },
+  {
+    "type": "clongdouble",
+    "named": false
+  },
+  {
+    "type": "clonglong",
+    "named": false
+  },
+  {
+    "type": "cptrdiff",
+    "named": false
+  },
+  {
+    "type": "cschar",
+    "named": false
+  },
+  {
+    "type": "cshort",
+    "named": false
+  },
+  {
+    "type": "csize",
+    "named": false
+  },
+  {
+    "type": "cstring",
+    "named": false
+  },
+  {
+    "type": "ctime_t",
+    "named": false
+  },
+  {
+    "type": "cuchar",
+    "named": false
+  },
+  {
+    "type": "cuint",
+    "named": false
+  },
+  {
+    "type": "culong",
+    "named": false
+  },
+  {
+    "type": "cushort",
+    "named": false
+  },
+  {
+    "type": "cvalist",
+    "named": false
+  },
+  {
+    "type": "cvararg",
+    "named": false
+  },
+  {
+    "type": "decltype",
     "named": false
   },
   {
@@ -1997,6 +2142,22 @@
     "named": false
   },
   {
+    "type": "facultative",
+    "named": false
+  },
+  {
+    "type": "float128",
+    "named": false
+  },
+  {
+    "type": "float32",
+    "named": false
+  },
+  {
+    "type": "float64",
+    "named": false
+  },
+  {
     "type": "for",
     "named": false
   },
@@ -2021,7 +2182,43 @@
     "named": false
   },
   {
+    "type": "int128",
+    "named": false
+  },
+  {
+    "type": "int16",
+    "named": false
+  },
+  {
+    "type": "int32",
+    "named": false
+  },
+  {
+    "type": "int64",
+    "named": false
+  },
+  {
+    "type": "int8",
+    "named": false
+  },
+  {
+    "type": "integer",
+    "named": false
+  },
+  {
+    "type": "isize",
+    "named": false
+  },
+  {
     "type": "local",
+    "named": false
+  },
+  {
+    "type": "nilptr",
+    "named": false
+  },
+  {
+    "type": "niltype",
     "named": false
   },
   {
@@ -2029,7 +2226,15 @@
     "named": false
   },
   {
+    "type": "number",
+    "named": false
+  },
+  {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "overload",
     "named": false
   },
   {
@@ -2049,11 +2254,43 @@
     "named": false
   },
   {
+    "type": "string",
+    "named": false
+  },
+  {
     "type": "switch",
     "named": false
   },
   {
+    "type": "table",
+    "named": false
+  },
+  {
     "type": "then",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "uint16",
+    "named": false
+  },
+  {
+    "type": "uint32",
+    "named": false
+  },
+  {
+    "type": "uint64",
+    "named": false
+  },
+  {
+    "type": "uint8",
+    "named": false
+  },
+  {
+    "type": "uinteger",
     "named": false
   },
   {
@@ -2065,7 +2302,23 @@
     "named": false
   },
   {
+    "type": "usize",
+    "named": false
+  },
+  {
+    "type": "varanys",
+    "named": false
+  },
+  {
+    "type": "varargs",
+    "named": false
+  },
+  {
     "type": "variant",
+    "named": false
+  },
+  {
+    "type": "void",
     "named": false
   },
   {

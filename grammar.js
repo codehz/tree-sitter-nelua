@@ -52,7 +52,7 @@ module.exports = grammar({
     $.Preprocess,
   ],
 
-  word: $ => $.Name,
+  word: $ => $.RawName,
 
   rules: {
     SourceFile: $ =>
@@ -86,29 +86,29 @@ module.exports = grammar({
     PreprocessName: $ => /#\|.*?\|#/,
     PreprocessExpr: $ => /#\[.*?\]#/,
 
-    Name: $ => /[_a-zA-Z\u00A0-\uFFFF][_a-zA-Z0-9\u00A0-\uFFFF]*/,
-    _Name: $ => choice($.Name, $.PreprocessName),
+    RawName: $ => /[_a-zA-Z\u00A0-\uFFFF][_a-zA-Z0-9\u00A0-\uFFFF]*/,
+    Name: $ => choice($.RawName, $.PreprocessName),
 
-    Annotation: $ => $._Name,
+    Annotation: $ => $.Name,
     AnnotationList: $ => seq('<', repeatSeq($.Annotation), '>'),
 
-    Id: $ => $._Name,
-    IdDecl: $ => seq($._Name, optional($._WithTypeExpression), optional($.AnnotationList)),
-    TypedDecl: $ => seq($._Name, $._WithTypeExpression, optional($.AnnotationList)),
+    RawId: $ => $.Name,
+    Id: $ => prec(1, choice($.Id, $.PreprocessExpr)),
+    RawIdDecl: $ => seq($.Name, optional($._WithTypeExpression), optional($.AnnotationList)),
+    TypedDecl: $ => seq($.Name, $._WithTypeExpression, optional($.AnnotationList)),
 
-    NameDecl: $ => $._Name,
+    NameDecl: $ => $.Name,
 
-    _Id: $ => prec(1, choice($.Id, $.PreprocessExpr)),
-    _IdDecl: $ => choice($.IdDecl, $.PreprocessExpr),
-    IdDecls: $ => prec.right(repeatSeq($._IdDecl)),
-    IdSuffixed: $ => seq($._Id, repeat1($.DotIndex)),
-    FunctionName: $ => seq($._Id, repeat($.DotIndex), optional($.ColonIndex)),
-    DotIndex: $ => seq(".", $._Name),
-    ColonIndex: $ => seq(":", $._Name),
+    IdDecl: $ => choice($.RawIdDecl, $.PreprocessExpr),
+    IdDecls: $ => prec.right(repeatSeq($.IdDecl)),
+    IdSuffixed: $ => seq($.Id, repeat1($.DotIndex)),
+    FunctionName: $ => seq($.Id, repeat($.DotIndex), optional($.ColonIndex)),
+    DotIndex: $ => seq(".", $.Name),
+    ColonIndex: $ => seq(":", $.Name),
     KeyIndex: $ => seq("[", $._Expression, "]"),
 
     Call: $ => $._CallArguments,
-    CallMethod: $ => seq(":", $._Name, $._CallArguments),
+    CallMethod: $ => seq(":", $.Name, $._CallArguments),
     _IndexSuffix: $ => choice($.DotIndex, $.KeyIndex),
     _CallSuffix: $ => choice($.Call, $.CallMethod),
 
@@ -116,13 +116,13 @@ module.exports = grammar({
     Field: $ => choice($._Expression, $.Pair),
     Pair: $ => choice(
       seq("[", field("key", $._Expression), "]", "=", field("value", $._Expression)),
-      seq(field("key", $._Name), "=", field("value", $._Expression)),
-      seq("=", field("key", $._Id))
+      seq(field("key", $.Name), "=", field("value", $._Expression)),
+      seq("=", field("key", $.Id))
     ),
 
     _CallArguments: $ => choice(seq("(", optional($.ExpressionList), ")"), $.InitList, $.String),
 
-    GlobalDecl: $ => seq(choice($.IdSuffixed, $._Name), optional($._WithTypeExpression), optional($.AnnotationList)),
+    GlobalDecl: $ => seq(choice($.IdSuffixed, $.Name), optional($._WithTypeExpression), optional($.AnnotationList)),
     _GlobalDecl: $ => choice($.GlobalDecl, $.PreprocessExpr),
     GlobalDecls: $ => repeatSeq($.GlobalDecl),
 
@@ -159,11 +159,13 @@ module.exports = grammar({
 
     Deref: $ => prec.left(seq("$", $._Expression)),
     Paren: $ => prec(100, seq("(", $._Expression, ")")),
-    PrimExpression: $ => choice($._Id, $.Paren),
+    PrimExpression: $ => choice($.SelfId, $.Id, $.Paren),
+    SelfId: $ => "self",
     Expression: $ => choice(
       $.Nil,
       $.InitList,
       $.BinaryOperation,
+      $.UnaryOperation,
       $.Number,
       $.True,
       $.False,
@@ -234,7 +236,8 @@ module.exports = grammar({
       $.PointerType,
       $.SimpleType,
       $.VariantType,
-      seq($._PrimTypeExpression, optional($.TypeGenericArguments)),
+      $.PrimType,
+      $.BuiltinType,
     ),
     VariantTypeOperation: $ => prec.right(PREC.VARIANT, repeat1Seq($.TypeExpression, "|")),
     TypeArrayOperation: $ => prec.left(PREC.UNARY, seq("[", field("length", optional($._Expression)), "]", field("inner", $.TypeExpression))),
@@ -247,8 +250,21 @@ module.exports = grammar({
     ArrayType: $ => prec.right(seq("array", optSeq("(", field("inner", $.TypeExpression), optSeq(",", field("length", $._Expression)), ")"))),
     PointerType: $ => prec.right(seq("pointer", optSeq("(", field("inner", $.TypeExpression), ")"))),
     SimpleType: $ => choice($.RecordType, $.UnionType, $.EnumType, $.FunctionType),
-    _PrimTypeExpression: $ => choice($.IdSuffixed, $._Id),
+    PrimType: $ => prec.right(seq(choice($._PrimTypeExpression, $.BuiltinGenericType), optional($.TypeGenericArguments))),
+    _PrimTypeExpression: $ => choice($.IdSuffixed, $.Id),
     _WithTypeExpression: $ => seq(":", $.TypeExpression),
+
+    BuiltinGenericType: $ => choice(
+      "facultative", "overload", "decltype"
+    ),
+
+    BuiltinType: $ => choice(
+      "niltype", "nilptr", "type", "void", "auto", "boolean", "table",
+      "int8", "int16", "int32", "int64", "int128", "isize", "uint8", "uint16", "uint32", "uint64", "usize", "float32", "float64", "float128", "byte",
+      "cchar", "cschar", "cshort", "cint", "clong", "clonglong", "cptrdiff", "cuchar", "cushort", "cuint", "culong", "csize", "clongdouble", "cstring", "cdouble", "cfloat" , "cvararg", "cvalist", "cclock_", "ctime_t",
+      "integer", "uinteger", "number",
+      "string", "any", "varanys", "varargs"
+    ),
 
     RecordType: $ => seq(
       "record", "{",
@@ -265,19 +281,19 @@ module.exports = grammar({
       optional(repeatSeq($.EnumField, $._FieldSep, true)),
       "}"
     ),
-    RecordField: $ => seq($._Name, ":", $.TypeExpression),
-    UnionField: $ => choice(seq($._Name, ":", $.TypeExpression), $.TypeExpression),
-    EnumField: $ => seq($._Name, optSeq("=", $._Expression)),
+    RecordField: $ => seq(alias($.Name, $.FieldName), ":", $.TypeExpression),
+    UnionField: $ => choice(seq(alias($.Name, $.FieldName), ":", $.TypeExpression), $.TypeExpression),
+    EnumField: $ => seq(alias($.Name, $.FieldName), optSeq("=", $._Expression)),
     FunctionType: $ => seq("function", "(", $.FunctionTypeArguments, ")", optSeq(":", $.FunctionReturnsType)),
 
     VarargsType: $ => seq("...", optional($._WithTypeExpression)),
 
     // // Statements
-    Label: $ => seq("::", $._Name, "::"),
+    Label: $ => seq("::", $.Name, "::"),
     Return: $ => seq("return", $._Expression),
     Break: $ => "break",
     Continue: $ => "continue",
-    Goto: $ => seq("goto", $._Name),
+    Goto: $ => seq("goto", $.Name),
     Do: $ => seq("do", optional($.Block), "end"),
     Defer: $ => seq("defer", optional($.Block), "end"),
     While: $ => seq("while", $._Expression, "do", optional($.Block), "end"),
@@ -303,7 +319,7 @@ module.exports = grammar({
     SwitchCase: $ => seq("case", $._Expression, "then", optional($.Block)),
     For: $ => seq("for", choice($.ForNum, $.ForIn)),
     ForNum: $ => seq(
-      $._IdDecl, "=", $._Expression, ",", optional($._for_cmp), $._Expression, optSeq(",", $._Expression), "do",
+      $.IdDecl, "=", $._Expression, ",", optional($._for_cmp), $._Expression, optSeq(",", $._Expression), "do",
       optional($.Block),
       "end"
     ),
