@@ -8,6 +8,10 @@
   "union"
   "function"
   "if"
+  "then"
+  "else"
+  "elseif"
+  "for"
 ] @keyword
 
 (SelfId) @variable.builtin
@@ -46,40 +50,42 @@
   "^"
 ] @operator))
 
-(Local ((Function) @function))
-(Global ((Function) @function))
-(FuncDef) @function
+(Function (NameDecl) @function)
+(FuncDef (FunctionName) @function)
+(CallFunction (PrimExpression) @function)
+(ExpressionSuffixed (PrimExpression) @function [(Call) (CallMethod)])
 
-(FunctionArguments (IdDecls (IdDecl (RawIdDecl ((Name) @variable.parameter)))))
-(FunctionArguments (IdDecls (IdDecl ((PreprocessExpr) @variable.parameter))))
+(FunctionArguments (IdDecls (IdDecl [
+  (RawIdDecl (Name) @variable.parameter)
+  (PreprocessExpr) @variable.parameter
+])))
 
 (Annotation) @attribute
 
-(Type ("@" @type))
+(Type "@" @type)
 
 ["," ";"] @punctuation.delimiter
 
 ["{" "}" "(" ")" "[" "]"] @punctuation.bracket
-(AnnotationList (["<" ">"] @punctuation.bracket))
+(AnnotationList ["<" ">"] @punctuation.bracket)
 
 (Preprocess) @preprocess
 
-(UnaryOperation (["not" "#" "-" "~" "&" "$"] @operator)) 
+(UnaryOperation ["not" "#" "-" "~" "&" "$"] @operator)
 
-(RecordField ((FieldName) @property))
-(UnionField ((FieldName) @property))
-(EnumField ((FieldName) @property))
+(RecordField (FieldName) @property)
+(UnionField (FieldName) @property)
+(EnumField (FieldName) @property)
 
-(DotIndex ((Name) @property))
-(ColonIndex ((Name) @property))
+(DotIndex (Name) @property)
+(ColonIndex (Name) @property)
 
 (Pair key: ((Name) @property))
 
-(Label) @label
+(Label (Name) @label)
+(Goto (Name) @label)
 
-(CallFunction) @function
-
-((PrimType) @type)
-((Number) @number)
-((Comment) @comment)
-((String) @string)
+(PrimType) @type
+(Number) @number
+(Comment) @comment
+(String) @string
