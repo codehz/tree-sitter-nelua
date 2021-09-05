@@ -129,12 +129,68 @@
       }
     },
     "PreprocessName": {
-      "type": "PATTERN",
-      "value": "#\\|.*?\\|#"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "#|"
+          },
+          "named": true,
+          "value": "Start"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Expression"
+          },
+          "named": true,
+          "value": "Content"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "|#"
+          },
+          "named": true,
+          "value": "End"
+        }
+      ]
     },
     "PreprocessExpr": {
-      "type": "PATTERN",
-      "value": "#\\[.*?\\]#"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "#[|]"
+          },
+          "named": true,
+          "value": "Start"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Expression"
+          },
+          "named": true,
+          "value": "Content"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "]#"
+          },
+          "named": true,
+          "value": "End"
+        }
+      ]
     },
     "RawName": {
       "type": "PATTERN",

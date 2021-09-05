@@ -87,8 +87,8 @@ module.exports = grammar({
         $.CallFunction,
       )),
 
-    PreprocessName: $ => /#\|.*?\|#/,
-    PreprocessExpr: $ => /#\[.*?\]#/,
+    PreprocessName: $ => seq(alias("#|", $.Start), alias($.Expression, $.Content), alias("|#", $.End)),
+    PreprocessExpr: $ => seq(alias("#[|]", $.Start), alias($.Expression, $.Content), alias("]#", $.End)),
 
     RawName: $ => /[_a-zA-Z\u00A0-\uFFFF][_a-zA-Z0-9\u00A0-\uFFFF]*/,
     Name: $ => choice($.RawName, $.PreprocessName),

@@ -302,6 +302,65 @@
     }
   },
   {
+    "type": "Content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "BinaryOperation",
+          "named": true
+        },
+        {
+          "type": "DoExpr",
+          "named": true
+        },
+        {
+          "type": "ExpressionSuffixed",
+          "named": true
+        },
+        {
+          "type": "False",
+          "named": true
+        },
+        {
+          "type": "InitList",
+          "named": true
+        },
+        {
+          "type": "Nil",
+          "named": true
+        },
+        {
+          "type": "Number",
+          "named": true
+        },
+        {
+          "type": "PrimExpression",
+          "named": true
+        },
+        {
+          "type": "String",
+          "named": true
+        },
+        {
+          "type": "True",
+          "named": true
+        },
+        {
+          "type": "Type",
+          "named": true
+        },
+        {
+          "type": "UnaryOperation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "Defer",
     "named": true,
     "fields": {},
@@ -1264,6 +1323,52 @@
     }
   },
   {
+    "type": "PreprocessExpr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Content",
+          "named": true
+        },
+        {
+          "type": "End",
+          "named": true
+        },
+        {
+          "type": "Start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "PreprocessName",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "Content",
+          "named": true
+        },
+        {
+          "type": "End",
+          "named": true
+        },
+        {
+          "type": "Start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "PrimExpression",
     "named": true,
     "fields": {},
@@ -1984,6 +2089,10 @@
     "named": true
   },
   {
+    "type": "End",
+    "named": true
+  },
+  {
     "type": "False",
     "named": true
   },
@@ -2008,14 +2117,6 @@
     "named": true
   },
   {
-    "type": "PreprocessExpr",
-    "named": true
-  },
-  {
-    "type": "PreprocessName",
-    "named": true
-  },
-  {
     "type": "PreprocessStart",
     "named": true
   },
@@ -2029,6 +2130,10 @@
   },
   {
     "type": "SelfId",
+    "named": true
+  },
+  {
+    "type": "Start",
     "named": true
   },
   {
