@@ -49,7 +49,9 @@ module.exports = grammar({
   externals: $ => [
     $.Comment,
     $.String,
-    $.Preprocess,
+    $.PreprocessStart,
+    $.PreprocessContent,
+    $.PreprocessEnd,
   ],
 
   word: $ => $.RawName,
@@ -60,6 +62,8 @@ module.exports = grammar({
         optional($.SHEBANG),
         optional($.Block),
       ),
+
+    Preprocess: $ => seq($.PreprocessStart, $.PreprocessContent, $.PreprocessEnd),
 
     Block: $ =>
       repeat1(choice(

@@ -31,6 +31,23 @@
         }
       ]
     },
+    "Preprocess": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "PreprocessStart"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "PreprocessContent"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "PreprocessEnd"
+        }
+      ]
+    },
     "Block": {
       "type": "REPEAT1",
       "content": {
@@ -3784,7 +3801,15 @@
     },
     {
       "type": "SYMBOL",
-      "name": "Preprocess"
+      "name": "PreprocessStart"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "PreprocessContent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "PreprocessEnd"
     }
   ],
   "inline": [],

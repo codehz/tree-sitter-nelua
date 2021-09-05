@@ -1241,6 +1241,29 @@
     }
   },
   {
+    "type": "Preprocess",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "PreprocessContent",
+          "named": true
+        },
+        {
+          "type": "PreprocessEnd",
+          "named": true
+        },
+        {
+          "type": "PreprocessStart",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "PrimExpression",
     "named": true,
     "fields": {},
@@ -1977,7 +2000,11 @@
     "named": true
   },
   {
-    "type": "Preprocess",
+    "type": "PreprocessContent",
+    "named": true
+  },
+  {
+    "type": "PreprocessEnd",
     "named": true
   },
   {
@@ -1986,6 +2013,10 @@
   },
   {
     "type": "PreprocessName",
+    "named": true
+  },
+  {
+    "type": "PreprocessStart",
     "named": true
   },
   {
