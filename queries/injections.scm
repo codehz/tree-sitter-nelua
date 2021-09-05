@@ -1,11 +1,5 @@
-(Preprocess (PreprocessContent) @injection.content
-  (#set! injection.language "lua")
-)
+(Preprocess (PreprocessContent) @lua @combined)
 
-(PreprocessName (Content) @injection.content
-  (#set! injection.language "lua")
-)
+(PreprocessName (Content) @lua @combined)
 
-(PreprocessExpr (Content) @injection.content
-  (#set! injection.language "lua")
-)
+(PreprocessExpr (Content) @lua @combined)

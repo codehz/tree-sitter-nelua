@@ -1,5 +1,6 @@
 [
   "local"
+  "global"
   "return"
   "do"
   "end"
@@ -70,6 +71,8 @@
 (AnnotationList ["<" ">"] @punctuation.bracket)
 
 (Preprocess) @preprocess
+(PreprocessName) @preprocess
+(PreprocessExpr) @preprocess
 
 (UnaryOperation ["not" "#" "-" "~" "&" "$"] @operator)
 
